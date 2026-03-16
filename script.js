@@ -1,3 +1,28 @@
+function smoothScrollTo(targetId, duration = 900) {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  const navHeight = document.querySelector("nav").offsetHeight;
+  const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight;
+  const startPos = window.scrollY;
+  const distance = targetPos - startPos;
+  let startTime = null;
+
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, startPos + distance * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
+
 // Scroll reveal
 const reveals = document.querySelectorAll(".reveal");
 const observer = new IntersectionObserver(
