@@ -1,4 +1,4 @@
-function smoothScrollTo(targetId, duration = 900) {
+function smoothScrollTo(targetId, duration = 1800) {
   const target = document.getElementById(targetId);
   if (!target) return;
 
