@@ -80,6 +80,27 @@
         font-weight: 300;
         margin-left: 8px;
       }
+      
+      #navMain, #navSub {
+        transition: opacity 0.35s ease;
+      }
+
+			#navSub {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.72rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.5);
+        margin-left: 8px;
+      }
+
+			@media (max-width: 700px) {
+        #navLogo { cursor: pointer; }
+        #navSub { margin-left: 0; display: block; }
+        #navLogo.flipped #navMain { opacity: 0; position: absolute; pointer-events: none; }
+        #navLogo.flipped #navSub { opacity: 1; }
+        #navLogo:not(.flipped) #navSub { opacity: 0; position: absolute; pointer-events: none; }
+        #navLogo:not(.flipped) #navMain { opacity: 1; }
+      }
 
       .nav-links {
         display: flex;
@@ -1136,11 +1157,17 @@
   <body>
     <!-- NAV -->
     <nav>
-      <div class="nav-logo">
-        Living to
-        <em>Clean</em>
-        the World
-        <span>ASU Change the World · 2026</span>
+      <div class="nav-logo" id="navLogo" onclick="toggleNavLogo()">
+        <span id="navMain">
+          Living to 
+          <em>
+            Clean
+          </em> 
+          the World
+        </span>
+        <span id="navSub">
+          ASU Change the World · 2026
+        </span>
       </div>
       <ul class="nav-links">
         <li><a href="#problem">Problem</a></li>
@@ -2243,6 +2270,12 @@
               : "rgba(255,255,255,0.55)";
         });
       });
+      
+      function toggleNavLogo() {
+  			if (window.innerWidth <= 700) {
+          document.getElementById('navLogo').classList.toggle('flipped');
+        }
+      }
     </script>
   </body>
 </html>
