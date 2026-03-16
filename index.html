@@ -33,12 +33,12 @@
       <div class="nav-dropdown" id="navDropdown">
         <button class="nav-dropdown-btn" onclick="toggleDropdown()">Menu ▾</button>
         <div class="nav-dropdown-menu" id="navDropdownMenu">
-          <a href="#problem" onclick="closeDropdown()">Problem</a>
-          <a href="#classification" onclick="closeDropdown()">Classes</a>
-          <a href="#consortium" onclick="closeDropdown()">Consortium</a>
-          <a href="#proteins" onclick="closeDropdown()">Proteins</a>
-          <a href="#species" onclick="closeDropdown()">Species</a>
-          <a href="#references" onclick="closeDropdown()">References</a>
+          <a href="#problem" onclick="event.preventDefault(); smoothScrollTo('problem'); closeDropdown();">Problem</a>
+          <a href="#classification" onclick="event.preventDefault(); smoothScrollTo('problem'); closeDropdown();">Classes</a>
+          <a href="#consortium" onclick="event.preventDefault(); smoothScrollTo('problem'); closeDropdown();">Consortium</a>
+          <a href="#proteins" onclick="event.preventDefault(); smoothScrollTo('problem'); closeDropdown();">Proteins</a>
+          <a href="#species" onclick="event.preventDefault(); smoothScrollTo('problem'); closeDropdown();">Species</a>
+          <a href="#references" onclick="event.preventDefault(); smoothScrollTo('problem'); closeDropdown();">References</a>
         </div>
       </div>
     </nav>
