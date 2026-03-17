@@ -61,46 +61,12 @@ nav {
 	white-space: nowrap;
 }
 
-#navMain,
-#navSub {
-	transition: opacity 0.35s ease;
-}
-
 #navSub {
 	font-family: "DM Sans", sans-serif;
 	font-size: 0.72rem;
 	font-weight: 300;
 	color: rgba(255, 255, 255, 0.5);
 	margin-left: 8px;
-}
-
-@media (max-width: 700px) {
-	#navLogo {
-		cursor: pointer;
-	}
-
-	#navSub {
-		margin-left: 0;
-		display: block;
-	}
-
-	#navLogo.flipped #navMain {
-		opacity: 0;
-		pointer-events: none;
-	}
-
-	#navLogo.flipped #navSub {
-		opacity: 1;
-	}
-
-	#navLogo:not(.flipped) #navSub {
-		opacity: 0;
-		pointer-events: none;
-	}
-
-	#navLogo:not(.flipped) #navMain {
-		opacity: 1;
-	}
 }
 
 /* ── HERO ── */
